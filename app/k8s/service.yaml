@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: tptech-app-service
+
+spec:
+  type: LoadBalancer
+  selector:
+    app: tptech-app
+  ports:
+    - port: 80
+      targetPort: 80
