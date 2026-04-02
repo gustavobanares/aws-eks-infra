@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: tptech-app
+
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 20%
+      maxUnavailable: 10%
+  selector:
+    matchLabels:
+      app: tptech-app
+  template:
+    metadata:
+      labels:
+        app: tptech-app
+        version: V1
+    spec:
+      containers:
+        - name: tptech-app
+          image: gustavobanares/tptech-nginx
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 200m
+              memory: 128Mi
+            limits:
+              cpu: 400m
+              memory: 256Mi
+    
