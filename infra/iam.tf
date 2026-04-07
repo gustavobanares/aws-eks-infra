@@ -39,8 +39,11 @@
         {
           Effect = "Allow"
           Action = [
-            "eks:DescribeCluster",
-            "eks:ListClusters"
+            "eks:*",
+            "ec2:*",
+            "iam:*",
+            "logs:*",
+            "kms:*"
           ]
           Resource = "*"
         },
