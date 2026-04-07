@@ -25,4 +25,18 @@ module "eks" {
       Environment = "dev"
       Terraform   = "true"
     }
+
+     access_entries = {
+    github_actions = {
+      principal_arn = "arn:aws:iam::179942802757:role/github-actions-eks-deploy"
+      policy_associations = {
+        admin = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = {
+            type = "cluster"
+          }
+        }
+      }
+    }
+  }
 }
