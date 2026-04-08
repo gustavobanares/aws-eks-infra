@@ -21,4 +21,6 @@ module "eks" {
   cluster_name = "tptech-cluster"
   vpc_id = module.vpc.vpc_id
   subnet_ids = module.vpc.public_subnet_ids
+  sso_admin_role_arn = var.sso_admin_role_arn
+  aws_account_id     = var.aws_account_id
 }
