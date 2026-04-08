@@ -9,3 +9,11 @@ variable "subnet_ids" {
 variable "cluster_name" {
     type = string
 }
+
+variable "sso_admin_role_arn" {
+    type = string
+  }
+
+  variable "aws_account_id" {
+    type = string
+  }
